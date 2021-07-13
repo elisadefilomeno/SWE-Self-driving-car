@@ -2,32 +2,36 @@ package actuators;
 
 import controllers.AccessoriesController;
 
-public final class RearViewMirrorActuatorObserver  
-implements IObserver, Actuator {
-	
-	private AccessoriesController bcm;
-	private int rearViewInclination;
+import java.util.Observable;
+import java.util.Observer;
 
-	public RearViewMirrorActuatorObserver(AccessoriesController bcm) {
-		this.bcm = bcm;
-		bcm.attach(this);
+@SuppressWarnings("deprecation")
+public final class RearViewMirrorActuatorObserver  
+implements Observer, Actuator {
+	
+	private AccessoriesController accessoriesController;
+	private int rearViewMirrorInclination;
+
+	public RearViewMirrorActuatorObserver(AccessoriesController accessoriesController) {
+		this.accessoriesController = accessoriesController;
+		accessoriesController.addObserver(this);
 		}
 	
 	public int getRearViewInclination() {
-		return rearViewInclination;
+		return rearViewMirrorInclination;
 	}
 
 	private void setRearViewInclination(int rearViewInclination) {
-		this.rearViewInclination = rearViewInclination;
-	}
-
-	@Override
-	public void update() {
-		doAction(bcm.getRearViewInclination());		
+		this.rearViewMirrorInclination = rearViewInclination;
 	}
 
 	@Override
 	public void doAction(int measure) {
 		this.setRearViewInclination(measure);		
+	}
+
+	@Override
+	public void update(Observable o, Object arg) {
+		doAction(accessoriesController.getRearViewInclination());	
 	}
 }

@@ -15,7 +15,9 @@ public class Vehicle{
 	private AutonomousDrivingController adc;
 	private AccessoriesController accessoriesController;
 
-	private Vehicle() {}
+	private Vehicle(String type) {
+		this.type=type;
+	}
 	
 	public static VehicleBuilder newVehicleBuilder(String type) {
 		return new VehicleBuilder(type);
@@ -58,18 +60,13 @@ public class Vehicle{
 		}
 		
 		public Vehicle build() {
-			Vehicle vehicle = new Vehicle();
-			vehicle.setType(type);
+			Vehicle vehicle = new Vehicle(type);
 			vehicle.setSensors(sensors);
 			vehicle.setActuators(actuators);
 			vehicle.setAdc(adc);
 			vehicle.setAccessoriesController(accessoriesController);
 			return vehicle;
 		}
-	}
-	
-	private void setType(String type) {
-		this.type = type;
 	}
 
 	private void setSensors(Collection<Sensor> sensors) {
@@ -97,7 +94,7 @@ public class Vehicle{
 	}
 
 	public String getType() {
-		return type;
+		return this.type;
 	}
 
 	public AutonomousDrivingController getAdc() {

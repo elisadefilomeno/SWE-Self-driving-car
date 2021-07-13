@@ -8,7 +8,7 @@ import actuators.RearViewMirrorActuatorObserver;
 import actuators.WindscreenWiperActuatorObserver;
 import controllers.AccessoriesController;
 
-public class ObserverTest {
+public class AccessoriesControllerTest {
 	
 	@Test
 	public void test() {
@@ -27,5 +27,4 @@ public class ObserverTest {
 		assertEquals(12, MirrorController.getRearViewInclination());
 		assertEquals(17, WiperController.getWindscreenWiperSpeed());
 	}
-
 }

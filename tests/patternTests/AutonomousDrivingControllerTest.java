@@ -13,7 +13,7 @@ import controllers.AutonomousDrivingController;
 import controllers.Instruction;
 import controllers.Protocol;
 
-public class ProtocolTest {
+public class AutonomousDrivingControllerTest {
 
 	@Test
 	public void test() {
@@ -47,6 +47,5 @@ public class ProtocolTest {
 		assertEquals(3, acceleratorActuator.getAccelerationIntensity());
 		assertEquals(0, steeringWheelActuator.getSteeringWheelInclination());
 		assertEquals(-3, brakeActuator.getBrakeIntensity());
-		
 	}
 }

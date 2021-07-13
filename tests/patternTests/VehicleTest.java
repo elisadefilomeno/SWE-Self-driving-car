@@ -14,7 +14,7 @@ import sensors.OpticalCamera;
 import sensors.Sensor;
 import vehicle.Vehicle;
 
-public class BuilderTest {
+public class VehicleTest {
 
 	@Test
 	public void test() {
@@ -33,7 +33,5 @@ public class BuilderTest {
 		assertSame(accessoriesController, auto.getAccessoriesController());
 		assertEquals("automobile", auto.getType());
 		assertTrue(auto.getSensors().contains(camera));
-
 	}
-
 }

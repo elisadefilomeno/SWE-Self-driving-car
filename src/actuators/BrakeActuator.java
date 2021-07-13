@@ -7,14 +7,18 @@ implements Actuator{
 	
 	private int brakeIntensity;
 	private Protocol brakeProtocol;
-
+	
+	@Override
+	public void doAction(int measure) {
+		this.setBrakeIntensity(measure);
+	}
+	
+	private void setBrakeIntensity(int brakeIntensity) {
+		this.brakeIntensity = brakeIntensity;
+	}
 
 	public int getBrakeIntensity() {
 		return brakeIntensity;
-	}
-
-	private void setBrakeIntensity(int brakeIntensity) {
-		this.brakeIntensity = brakeIntensity;
 	}
 
 	public void setBrakeProtocol(Protocol brakeProtocol) {
@@ -24,10 +28,4 @@ implements Actuator{
 	public Protocol getBrakeProtocol() {
 		return brakeProtocol;
 	}
-
-	@Override
-	public void doAction(int measure) {
-		this.setBrakeIntensity(measure);
-	}
-	
 }

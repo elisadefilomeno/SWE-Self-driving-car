@@ -1,32 +1,44 @@
 package controllers;
 
+import java.util.Observable;
+
+@SuppressWarnings("deprecation")
+
+
 public class AccessoriesController 
-extends AbstractSubject
+extends Observable
 {
 	private int rearViewInclination;
 	private int windscreenWiperSpeed;
-	private int PowerWindowHeight;
+	private int powerWindowHeight;
+	
+
+	public void setRearViewInclination(int rearViewInclination) {
+		this.rearViewInclination = rearViewInclination;
+		this.setChanged();
+		notifyObservers();
+	}
+	
+	public void setWindscreenWiperSpeed(int windscreenWiperSpeed) {
+		this.windscreenWiperSpeed = windscreenWiperSpeed;
+		this.setChanged();
+		notifyObservers();
+	}
+	public void setCarWindowHeight(int carWindowHeight) {
+		this.powerWindowHeight = carWindowHeight;
+		this.setChanged();
+		notifyObservers();
+	}
 	
 	public int getRearViewInclination() {
 		return rearViewInclination;
 	}
-	public void setRearViewInclination(int rearViewInclination) {
-		this.rearViewInclination = rearViewInclination;
-		notifyObservers();
+	
+	public int getCarWindowHeight() {
+		return powerWindowHeight;
 	}
+	
 	public int getWindscreenWiperSpeed() {
 		return windscreenWiperSpeed;
 	}
-	public void setWindscreenWiperSpeed(int windscreenWiperSpeed) {
-		this.windscreenWiperSpeed = windscreenWiperSpeed;
-		notifyObservers();
-	}
-	public int getCarWindowHeight() {
-		return PowerWindowHeight;
-	}
-	public void setCarWindowHeight(int carWindowHeight) {
-		this.PowerWindowHeight = carWindowHeight;
-		notifyObservers();
-	}
-
 }

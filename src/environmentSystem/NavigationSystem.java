@@ -10,5 +10,6 @@ public class NavigationSystem {
 	public Position getCurrentDestination() {
 		return currentDestination;
 	}
-	
 }
+
+

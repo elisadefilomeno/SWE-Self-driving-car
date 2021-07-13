@@ -9,14 +9,18 @@ public class Protocol implements Iterable<Instruction>{
 
 	public Protocol(Collection<Instruction> instructions) {
 		this.instructions = instructions;
-		currentInstruction= this.instructions.iterator();
+		currentInstruction= this.iterator();
+	}
+
+	public Collection<Instruction> getInstructions() {
+		return instructions;
 	}
 
 	@Override
 	public Iterator<Instruction> iterator() {
-		return this.instructions.iterator();
+		return new InstructionIterator(this);
 	}  
-	
+
 	public void executeNextInstruction() {
 		if(this.currentInstruction.hasNext()) {
 			this.currentInstruction.next().execute();

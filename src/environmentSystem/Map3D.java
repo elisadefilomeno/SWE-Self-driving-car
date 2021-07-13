@@ -12,6 +12,5 @@ public final class Map3D {
 	public void setMap(Collection<Position> map) {
 		this.map = map;
 	}
-	
-
 }
+
